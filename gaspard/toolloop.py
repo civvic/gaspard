@@ -8,11 +8,11 @@ from .core import *
 from fastcore.utils import *
 from fastcore.meta import delegates
 
-import google.generativeai as genai
+from google.genai.models import Models
 
 # %% ../01_toolloop.ipynb
 @patch
-@delegates(genai.GenerativeModel.generate_content)
+@delegates(Models.generate_content)
 def toolloop(self:Chat,
              pr, # Prompt to pass to model
              max_steps=10, # Maximum number of tool requests to loop through
